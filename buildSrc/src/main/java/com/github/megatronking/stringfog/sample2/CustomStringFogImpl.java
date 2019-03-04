@@ -3,7 +3,7 @@ package com.github.megatronking.stringfog.sample2;
 import com.github.megatronking.stringfog.IStringFog;
 
 /**
- * 自定义算法实现，此文件需要拷贝一份到buildSrc目录下面
+ * 自定义算法实现，此文件存储目录路径须和其包名一致
  *
  * @author Sundy
  * @since 2019/3/4 23:41
