@@ -1,0 +1,9 @@
+repositories {
+    google()
+    jcenter()
+}
+
+dependencies {
+    // 自定义算法实现依赖库
+    implementation 'com.github.megatronking.stringfog:interface:1.0.0'
+}
