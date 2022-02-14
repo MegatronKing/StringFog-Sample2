@@ -1,9 +1,9 @@
 repositories {
     google()
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // 自定义算法实现依赖库
-    implementation 'com.github.megatronking.stringfog:interface:1.1.0'
+    implementation 'com.github.megatronking.stringfog:interface:3.0.0'
 }

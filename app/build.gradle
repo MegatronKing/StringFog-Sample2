@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'stringfog'
 
 stringfog {
-    key 'Hello StringFog'
     enable true
     debug false
     // 指定加解密的具体实现类，buildSrc中和app中均要包含此实现源文件
     implementation 'com.github.megatronking.stringfog.sample2.CustomStringFogImpl'
     // 指定需加密的代码包路径，可配置多个，未指定将默认全部加密
     fogPackages = ["com.github.megatronking.stringfog"]
+    kg new com.github.megatronking.stringfog.sample2.CustomKeyGenerator()
 }
 
 android {
@@ -49,5 +49,5 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11'
 
     // 自定义算法实现依赖库
-    implementation 'com.github.megatronking.stringfog:interface:1.1.0'
+    implementation 'com.github.megatronking.stringfog:interface:3.0.0'
 }
