@@ -10,25 +10,29 @@ stringfog {
     implementation 'com.github.megatronking.stringfog.sample2.CustomStringFogImpl'
     // 指定需加密的代码包路径，可配置多个，未指定将默认全部加密
     fogPackages = ["com.github.megatronking.stringfog"]
+    // 4.0版本新增：使用自定义密钥生成器
     kg new com.github.megatronking.stringfog.sample2.CustomKeyGenerator()
+    // 可选（4.0版本新增）：用于控制字符串加密后在字节码中的存在形式, 默认为base64，
+    // 也可以使用text或者bytes
+    mode base64
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.github.megatronking.stringfog.sample1"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
-        // 强行开启混淆，测试效果
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        // 强行开启混淆，测试效果
         debug {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -37,16 +41,20 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10'
 
     // 自定义算法实现依赖库
     implementation 'com.github.megatronking.stringfog:interface:3.0.0'
