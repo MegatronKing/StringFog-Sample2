@@ -57,5 +57,5 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10'
 
     // 自定义算法实现依赖库
-    implementation 'com.github.megatronking.stringfog:interface:3.0.0'
+    implementation 'com.github.megatronking.stringfog:interface:4.0.1'
 }
